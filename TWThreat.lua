@@ -143,6 +143,16 @@ SlashCmdList["TWT"] = function(cmd)
             TWT_CONFIG.visible = true
             return true
         end
+        if __substr(cmd, 1, 6) == 'toggle' then
+            if TWT_CONFIG.visible then
+                _G['TWTMain']:Hide()
+                TWT_CONFIG.visible = false
+            else
+                _G['TWTMain']:Show()
+                TWT_CONFIG.visible = true
+            end
+            return true
+        end
         if __substr(cmd, 1, 8) == 'tankmode' then
             if TWT_CONFIG.tankMode then
                 twtprint('Tank Mode is already enabled.')
@@ -183,6 +193,7 @@ SlashCmdList["TWT"] = function(cmd)
 
         twtprint(TWT.addonName .. ' |cffabd473v' .. TWT.addonVer .. '|cffffffff available commands:')
         twtprint('/twt show - shows the main window (also /twtshow)')
+        twtprint('/twt toggle - toggle the main window')
     end
 end
 
